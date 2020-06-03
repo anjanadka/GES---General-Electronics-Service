@@ -5,17 +5,19 @@
  */
 package ges;
 
+import java.awt.*;
+import java.applet.Applet;
+
 /**
  *
  * @author Anjana Dileepkumar
  */
-public class GES {
+public class payment_coustomer extends Applet {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
     
+    public void init() {
+        // TODO start asynchronous download of heavy resources
+    }
+
+    // TODO overwrite start(), stop() and destroy() methods
 }
