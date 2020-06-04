@@ -1,22 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ges;
 import java.awt.*;
-import java.applet.Applet;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import javax.swing.*;
 /**
  *
  * @author Anjana Dileepkumar
  */
-public class first_window extends Applet implements ActionListener{
+public class first_window extends JApplet implements ActionListener{
 
-    private final Button customer =new Button  ("  Customer ");//button-Customer
-    private final Button technician = new Button (" Technician ");//Button-Technician
+    private final JButton customer =new JButton  ("  Customer ");//button-Customer
+    private final JButton technician = new JButton (" Technician ");//Button-Technician
     @Override
     public void init() {
         GridBagLayout g1=new GridBagLayout();//gridLayout
