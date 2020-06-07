@@ -1,4 +1,6 @@
 package ges;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
@@ -20,16 +22,16 @@ public class work extends JApplet implements ActionListener {
     private final JLabel work1 = new JLabel(" Work ");
     private final JLabel txt_cust = new JLabel("Customer Name : ");
     private final JLabel txt_cust1 = new JLabel("Customer Name : ");
-    private final JLabel txt_add = new JLabel("Address                : ");
-    private final JLabel txt_equip = new JLabel("Equipment            : ");
-    private final JLabel txt_equip1 = new JLabel("Equipment            : ");
-    private final JLabel txt_brand = new JLabel("Brand                     : ");
-    private final JLabel txt_complaint = new JLabel("Complaint             : ");
+    private final JLabel txt_add = new JLabel("Address              : ");
+    private final JLabel txt_equip = new JLabel("Equipment         : ");
+    private final JLabel txt_equip1 = new JLabel("Equipment         : ");
+    private final JLabel txt_brand = new JLabel("Brand                : ");
+    private final JLabel txt_complaint = new JLabel("Complaint         : ");
     private final JButton ok = new JButton (" OK ");
     private final JButton ok1 = new JButton (" OK ");
     private final JSeparator space = new JSeparator();
     private final JSeparator space1 = new JSeparator();
-    private final JLabel txt_rate = new JLabel("Rating                    : ");
+    private final JLabel txt_rate = new JLabel("Rating                : ");
     @Override
     public void init() {
         JTabbedPane tp=new JTabbedPane();
@@ -53,7 +55,14 @@ public class work extends JApplet implements ActionListener {
                 .addGroup(g1.createParallelGroup(BASELINE).addComponent(ok))
                 .addGroup(g1.createParallelGroup(BASELINE).addComponent(space)));   
          new_wk.setLayout(g1);
-         
+         new_wk.setBackground(Color.WHITE);
+         work.setFont(new Font("Times New Roman",Font.BOLD,18));
+                work.setForeground(Color.blue);
+                txt_cust.setFont(new Font("Times New Roman",Font.BOLD,18));
+                txt_equip.setFont(new Font("Times New Roman",Font.BOLD,18));
+                txt_brand.setFont(new Font("Times New Roman",Font.BOLD,18));
+                  txt_complaint.setFont(new Font("Times New Roman",Font.BOLD,18));
+                    txt_add.setFont(new Font("Times New Roman",Font.BOLD,18));
         tp.add("Completed Work",comp_wk); 
         GroupLayout g2 = new GroupLayout(comp_wk);
         g2.setAutoCreateGaps(true);  
@@ -70,7 +79,12 @@ public class work extends JApplet implements ActionListener {
                 .addGroup(g2.createParallelGroup(BASELINE).addComponent(ok1))
                 .addGroup(g2.createParallelGroup(BASELINE).addComponent(space1)));   
          comp_wk.setLayout(g2);
-        
+        comp_wk.setBackground(Color.WHITE);
+                work1.setFont(new Font("Times New Roman",Font.BOLD,18));
+                work1.setForeground(Color.blue);
+                txt_cust1.setFont(new Font("Times New Roman",Font.BOLD,18));
+                txt_equip1.setFont(new Font("Times New Roman",Font.BOLD,18));
+                txt_rate.setFont(new Font("Times New Roman",Font.BOLD,18));
         add(tp);
         
         setSize(400,400);  

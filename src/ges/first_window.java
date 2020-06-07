@@ -8,23 +8,31 @@ import javax.swing.*;
  * @author Anjana Dileepkumar
  */
 public class first_window extends JApplet implements ActionListener{
-
+    private JPanel g1 ;
+    private final JLabel txt = new JLabel("GENERAL ELECTRONICS SERVICE");
     private final JButton customer =new JButton  ("  Customer ");//button-Customer
     private final JButton technician = new JButton (" Technician ");//Button-Technician
     @Override
     public void init() {
-        GridBagLayout g1=new GridBagLayout();//gridLayout
-	setLayout(g1);
+        g1 = new JPanel(new GridBagLayout());
 	GridBagConstraints c= new GridBagConstraints();
         c.weighty=0.0001;
-        g1.setConstraints(customer, c);
-        add(customer);
+        g1.add(txt, c);
         c.gridy=1;
-        g1.setConstraints(technician, c);
-        add(technician);
+        g1.add(customer, c);
+        c.gridy=2;
+        g1.add(technician, c);
        
         customer.addActionListener(this);
-        technician.addActionListener(this); 
+        technician.addActionListener(this);
+        setSize(400,400);
+        g1.setBackground(Color.WHITE);
+        txt.setFont(new Font("Times New Roman",Font.BOLD,18));
+        txt.setForeground(Color.blue);
+         g1.setVisible(true);
+         add(g1);
+         setSize(400,400);
+
         
     }
 

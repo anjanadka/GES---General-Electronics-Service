@@ -10,30 +10,30 @@ import java.awt.event.ActionListener;
  * @author Anjana Dileepkumar
  */
 public class technician_option extends JApplet implements ActionListener{
-    
+    private JPanel g1 ;   
     private final JButton works = new JButton ("         Works        ");
     private final JButton payment_details = new JButton ("Payment Details");
     private final JButton logout = new JButton ("         Logout         ");
    
     @Override
     public void init() {
-    GridBagLayout g1=new GridBagLayout();//gridLayout 
-    setLayout(g1);
+    g1 = new JPanel(new GridBagLayout());    
     GridBagConstraints c = new GridBagConstraints();
     c.weighty=1;
-    g1.setConstraints(works, c);
-    add(works);
+    g1.add(works, c);
     c.gridy=1;
-    g1.setConstraints(payment_details, c);
-    add(payment_details);
+    g1.add(payment_details, c);
     c.gridy=2;
-    g1.setConstraints(logout, c);
-    add(logout);
+    g1.add(logout, c);
     
     works.addActionListener(this);
     payment_details.addActionListener(this);
     logout.addActionListener(this);
-    
+    g1.setBackground(Color.WHITE);
+     g1.setVisible(true);
+     add(g1);
+     setSize(400,400);
+
         
     }
 
