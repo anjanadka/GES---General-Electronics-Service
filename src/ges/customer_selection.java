@@ -38,7 +38,11 @@ public class customer_selection extends JFrame implements ActionListener{
         registered_customer.addActionListener(this); 
         
         g1.setBackground(Color.white);
-
+        txt.setFont(new Font("Times New Roman",Font.BOLD,40));
+        txt.setForeground(Color.WHITE);        
+        g1.setBackground(new Color(0,153,204));
+        new_customer.addActionListener(this);
+        registered_customer.addActionListener(this); 
          g1.setVisible(true);
          add(g1);
     }
@@ -60,7 +64,7 @@ public class customer_selection extends JFrame implements ActionListener{
                 customer_login b = new customer_login();
                 this.setVisible(false);
                 b.setVisible(true);
-                b.setSize(400,400);
+                b.setSize(750,750);
             }
         }
         
@@ -70,7 +74,7 @@ public class customer_selection extends JFrame implements ActionListener{
     {
         customer_selection a=new customer_selection();
         a.setVisible(true);
-        a.setSize(400,400);
+        a.setSize(750,750);
     }
     
 }

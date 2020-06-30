@@ -36,6 +36,7 @@ public class payment_tech extends JFrame implements ActionListener,WindowListene
     private final JButton submit = new JButton("Submit");
     private final JComboBox cb = new JComboBox();
     private final JLabel comp=new JLabel("Complaint          :   ");
+    private final JButton back=new JButton("Back");
     public int q;
     int selected;
     int comp_id[]=new int[10];
@@ -56,6 +57,7 @@ public class payment_tech extends JFrame implements ActionListener,WindowListene
                 cust_name.setFont(new Font("Times New Roman",Font.PLAIN,18));
                  brand.setFont(new Font("Times New Roman",Font.PLAIN,18));
                  submit.setFont(new Font("Times New Roman",Font.PLAIN,18));
+                 back.setFont(new Font("Times New Roman",Font.PLAIN,18));
                 
         GroupLayout g1 = new GroupLayout(j1);
         
@@ -68,7 +70,8 @@ public class payment_tech extends JFrame implements ActionListener,WindowListene
                         .addComponent(txt_cust)
                         .addComponent(txt_equip)
                         .addComponent(txt_brand)
-                        .addComponent(txt_amount))
+                        .addComponent(txt_amount)
+                        .addComponent(back,CENTER))
             .addGroup(g1.createParallelGroup()
                     .addComponent(pay)
                     .addComponent(cb)
@@ -106,6 +109,7 @@ public class payment_tech extends JFrame implements ActionListener,WindowListene
                         .addComponent(amount)
                         .addGap(50))
                 .addGroup(g1.createParallelGroup(BASELINE)
+                        .addComponent(back)
                         .addComponent(submit)
                 ));
         j1.setLayout(g1);
@@ -116,7 +120,7 @@ public class payment_tech extends JFrame implements ActionListener,WindowListene
         submit.addActionListener(this);
         amount.addActionListener(this);
         cb.addItemListener(this);
-        
+        back.addActionListener(this);
         
     }
     
@@ -124,9 +128,7 @@ public class payment_tech extends JFrame implements ActionListener,WindowListene
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source= e.getSource();
-        
-        
-        
+        if(source == submit){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException ex) {
@@ -159,7 +161,15 @@ public class payment_tech extends JFrame implements ActionListener,WindowListene
         technician_option t1=new technician_option(q);
         t1.setVisible(true);
             this.setVisible(false);
-            t1.setSize(400,400);
+            t1.setSize(750,750);
+    }
+        else if(source==back)
+        {
+            technician_option t1=new technician_option(q);
+            t1.setVisible(true);
+            this.setVisible(false);
+            t1.setSize(750,750);
+        }
         
     }
     

@@ -29,7 +29,7 @@ public class technician_option extends JFrame implements ActionListener{
     works.addActionListener(this);
     payment_details.addActionListener(this);
     logout.addActionListener(this);
-    g1.setBackground(Color.WHITE);
+    g1.setBackground(new Color(0,153,204));
      g1.setVisible(true);
      add(g1);
      setSize(400,400);
@@ -44,20 +44,20 @@ public class technician_option extends JFrame implements ActionListener{
             work a = new work(k);
             a.setVisible(true);
             this.setVisible(false);
-            a.setSize(400,400);
+            a.setSize(750,750);
         }
         else if(s == payment_details){
             payment_tech b= new payment_tech(k);
             b.setVisible(true);
             this.setVisible(false);
-            b.setSize(400,400);
+            b.setSize(750,750);
         }
         else if(s == logout)
         {
             technician_login c = new technician_login();
             c.setVisible(true);
             this.setVisible(false);
-            c.setSize(400,400);
+            c.setSize(750,750);
         }
         
     }
@@ -65,6 +65,6 @@ public class technician_option extends JFrame implements ActionListener{
     public static void main(String args[]){
         technician_option a = new technician_option(2001);
         a.setVisible(true);
-        a.setSize(400,400);
+        a.setSize(750,750);
     }
 }

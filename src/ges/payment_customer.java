@@ -128,7 +128,7 @@ public class payment_customer extends JFrame implements ActionListener,ItemListe
            rating a = new rating(q,comp_id[selected]);
             a.setVisible(true);
            this.setVisible(false);
-           a.setSize(400,400);
+           a.setSize(750,750);
         
 
     }

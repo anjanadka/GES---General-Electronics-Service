@@ -25,7 +25,7 @@ public class technician_selection extends JFrame implements ActionListener{
         g1.add(registered_technician, c);
           setSize(400,400);
         setBackground(Color.WHITE);
-        txt.setFont(new Font("Times New Roman",Font.BOLD,35));
+        txt.setFont(new Font("Times New Roman",Font.BOLD,40));
         txt.setForeground(Color.WHITE);
         new_technician.addActionListener(this);
         registered_technician.addActionListener(this); 
