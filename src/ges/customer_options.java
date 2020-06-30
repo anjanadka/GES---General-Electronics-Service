@@ -51,14 +51,14 @@ public class customer_options extends JFrame implements ActionListener{
         Object s= e.getSource();
         if(s == add_details)
         {
-           customerdetails a = new customerdetails(k); 
+           customerdetails a = new customerdetails(); 
            a.setVisible(true);
            this.setVisible(false);
            a.setSize(750,750);
         }
         else if(s == add_complaints)
         {
-            complaintdetails b = new complaintdetails(k);
+            complaintdetails b = new complaintdetails();
             b.setVisible(true);
             this.setVisible(false);
             b.setSize(750, 750);

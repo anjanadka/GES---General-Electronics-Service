@@ -25,11 +25,13 @@ public class payment_customer extends JFrame implements ActionListener,ItemListe
     private final JLabel amount = new JLabel("Amount             :");
     private final JLabel amount_txt = new JLabel();
     private final JButton pay = new JButton("  Pay  ");
+    private final JButton back=new JButton("Back");
     private final JComboBox cb = new JComboBox();
     private JPanel j1=new JPanel() ;
     public int q;
     public int selected;
     public int comp_id[]=new int[10];
+    
     public payment_customer(int a) {
         q=a;
         get_cb();
@@ -43,6 +45,7 @@ public class payment_customer extends JFrame implements ActionListener,ItemListe
                 amount_txt.setFont(new Font("Times New Roman",Font.PLAIN,18));
                tech_txt.setFont(new Font("Times New Roman",Font.PLAIN,18));
                pay.setFont(new Font("Times New Roman",Font.PLAIN,18));
+               back.setFont(new Font("Times New Roman",Font.PLAIN,18));
         
         GroupLayout g1 = new GroupLayout(j1);
         g1.setAutoCreateGaps(true);  
@@ -51,10 +54,10 @@ public class payment_customer extends JFrame implements ActionListener,ItemListe
                         .addGroup(g1.createParallelGroup(LEADING)
                                 .addGap(150))
                         .addGroup(g1.createParallelGroup(LEADING)
-                            
                             .addComponent(sel_comp)
                             .addComponent(tech_lbl)
-                            .addComponent(amount))
+                            .addComponent(amount)
+                            .addComponent(back,CENTER))
                         .addGroup(g1.createParallelGroup()
                             .addComponent(title)
                             .addComponent(cb)
@@ -68,7 +71,7 @@ public class payment_customer extends JFrame implements ActionListener,ItemListe
                 .addGap(50)
                 .addGroup(g1.createParallelGroup(BASELINE)
                         .addComponent(title,CENTER)
-                        .addGap(100))  
+                        .addGap(150))  
                 .addGroup(g1.createParallelGroup(BASELINE)
                         .addComponent(sel_comp)
                         .addComponent(cb)
@@ -80,8 +83,9 @@ public class payment_customer extends JFrame implements ActionListener,ItemListe
                 .addGroup(g1.createParallelGroup(BASELINE)
                         .addComponent(amount)
                         .addComponent(amount_txt)
-                        .addGap(50))
+                        .addGap(100))
                 .addGroup(g1.createParallelGroup(BASELINE)
+                        .addComponent(back)
                         .addComponent(pay,CENTER))
                 );  
         j1.setLayout(g1);
@@ -90,6 +94,7 @@ public class payment_customer extends JFrame implements ActionListener,ItemListe
         j1.setSize(400,400);
         j1.setVisible(true);  
         j1.setBackground(Color.WHITE);
+        back.addActionListener(this);
         add(j1);
 
         
@@ -100,6 +105,7 @@ public class payment_customer extends JFrame implements ActionListener,ItemListe
     @Override
     public void actionPerformed(ActionEvent e) {
         Object se = e.getSource();
+        if(se==pay){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException ex) {
@@ -129,7 +135,15 @@ public class payment_customer extends JFrame implements ActionListener,ItemListe
             a.setVisible(true);
            this.setVisible(false);
            a.setSize(750,750);
-        
+        }
+        else if(se==back)
+        {
+            customer_options c =new customer_options(q);
+            c.setVisible(true);
+            this.setVisible(false);
+            c.setSize(750,750);
+            
+        }
 
     }
     

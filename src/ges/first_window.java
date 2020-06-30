@@ -27,7 +27,6 @@ public class first_window extends JFrame implements ActionListener{
         g1.add(customer, c);
         c.gridy=2;
         g1.add(technician, c);
-       
         customer.addActionListener(this);
         technician.addActionListener(this);
         g1.setBackground(new Color(0,153,204));
