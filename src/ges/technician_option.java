@@ -9,14 +9,14 @@ import java.awt.event.ActionListener;
  *
  * @author Anjana Dileepkumar
  */
-public class technician_option extends JApplet implements ActionListener{
+public class technician_option extends JFrame implements ActionListener{
     private JPanel g1 ;   
     private final JButton works = new JButton ("         Works        ");
     private final JButton payment_details = new JButton ("Payment Details");
     private final JButton logout = new JButton ("         Logout         ");
-   
-    @Override
-    public void init() {
+    public int k;
+    public technician_option(int q) {
+    k=q;
     g1 = new JPanel(new GridBagLayout());    
     GridBagConstraints c = new GridBagConstraints();
     c.weighty=1;
@@ -39,6 +39,32 @@ public class technician_option extends JApplet implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Object s = e.getSource();
+        if(s == works){
+            work a = new work(k);
+            a.setVisible(true);
+            this.setVisible(false);
+            a.setSize(400,400);
+        }
+        else if(s == payment_details){
+            payment_tech b= new payment_tech(k);
+            b.setVisible(true);
+            this.setVisible(false);
+            b.setSize(400,400);
+        }
+        else if(s == logout)
+        {
+            technician_login c = new technician_login();
+            c.setVisible(true);
+            this.setVisible(false);
+            c.setSize(400,400);
+        }
+        
+    }
+    
+    public static void main(String args[]){
+        technician_option a = new technician_option(2001);
+        a.setVisible(true);
+        a.setSize(400,400);
     }
 }

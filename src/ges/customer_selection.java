@@ -13,19 +13,17 @@ import javax.swing.*;
  *
  * @author Anjana Dileepkumar
  */
-public class customer_selection extends JApplet implements ActionListener{
+public class customer_selection extends JFrame implements ActionListener{
     private final JLabel txt = new JLabel("CUSTOMER");
     private final JButton new_customer =new JButton  ("       New Customer      ");//button-new_Customer
     private final JButton  registered_customer = new JButton (" Registered Customer ");//Button-Registered_customer
     private JPanel g1 ;
-    @Override
-    public void init() {
+    
+    public customer_selection() {
 
        g1 = new JPanel(new GridBagLayout());
-
-      
         
-	GridBagConstraints c= new GridBagConstraints();
+       GridBagConstraints c= new GridBagConstraints();
         c.weighty=0.0001;
         g1.add(txt, c);
         c.gridy=1;
@@ -48,7 +46,31 @@ public class customer_selection extends JApplet implements ActionListener{
     // TODO overwrite start(), stop() and destroy() methods
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     public void actionPerformed(ActionEvent e) {
+        Object s =e.getSource();
+        if(s ==new_customer)
+        {
+            creater_customer a = new creater_customer();
+            this.setVisible(false);
+            a.setVisible(true);
+            a.setSize(750, 750);
+        }
+        else{
+            if(s == registered_customer){
+                customer_login b = new customer_login();
+                this.setVisible(false);
+                b.setVisible(true);
+                b.setSize(400,400);
+            }
+        }
+        
     }
+    
+     public static void main(String args[])
+    {
+        customer_selection a=new customer_selection();
+        a.setVisible(true);
+        a.setSize(400,400);
+    }
+    
 }
