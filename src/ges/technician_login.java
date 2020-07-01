@@ -1,15 +1,5 @@
 package ges;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author NISHIGAR
- */
 public class technician_login extends javax.swing.JFrame {
 
     /**
@@ -68,7 +58,7 @@ public class technician_login extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 102, 255));
-        jLabel2.setText("TECHNICIAN LOGIN");
+        jLabel2.setText("LOGIN");
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel3.setText("USERNAME");
