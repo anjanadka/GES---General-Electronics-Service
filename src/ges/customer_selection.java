@@ -17,6 +17,7 @@ public class customer_selection extends JFrame implements ActionListener{
     private final JLabel txt = new JLabel("CUSTOMER");
     private final JButton new_customer =new JButton  ("       New Customer      ");//button-new_Customer
     private final JButton  registered_customer = new JButton (" Registered Customer ");//Button-Registered_customer
+    private final JButton  back = new JButton ("                 Back              ");
     private JPanel g1 ;
     
     public customer_selection() {
@@ -30,6 +31,8 @@ public class customer_selection extends JFrame implements ActionListener{
         g1.add(new_customer, c);
         c.gridy=2;
         g1.add(registered_customer, c);
+        c.gridy=3;
+         g1.add(back, c);
           setSize(400,400);
         setBackground(Color.WHITE);
         txt.setFont(new Font("Times New Roman",Font.BOLD,18));
@@ -43,6 +46,7 @@ public class customer_selection extends JFrame implements ActionListener{
         g1.setBackground(new Color(0,153,204));
         new_customer.addActionListener(this);
         registered_customer.addActionListener(this); 
+        back.addActionListener(this);
          g1.setVisible(true);
          add(g1);
     }
@@ -66,6 +70,15 @@ public class customer_selection extends JFrame implements ActionListener{
                 b.setVisible(true);
                 b.setSize(750,750);
             }
+        
+        else{
+                if(s == back){
+                first_window c = new first_window();
+                this.setVisible(false);
+                c.setVisible(true);
+                c.setSize(750,750);
+                }
+                }
         }
         
     }
