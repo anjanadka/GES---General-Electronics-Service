@@ -44,7 +44,7 @@ public class payment_tech extends JFrame implements ActionListener,WindowListene
        q=t;
        get_cb();
                 pay.setFont(new Font("Times New Roman",Font.BOLD,40));
-                pay.setForeground(Color.blue);
+                pay.setForeground(new Color(0,153,204));
                 txt_amount.setFont(new Font("Times New Roman",Font.PLAIN,18));
                 txt_equip.setFont(new Font("Times New Roman",Font.PLAIN,18));
                 txt_cust.setFont(new Font("Times New Roman",Font.PLAIN,18));
@@ -129,11 +129,7 @@ public class payment_tech extends JFrame implements ActionListener,WindowListene
     public void actionPerformed(ActionEvent e) {
         Object source= e.getSource();
         if(source == submit){
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(payment_tech.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
         Connection con = null;
 
         try {
@@ -149,7 +145,7 @@ public class payment_tech extends JFrame implements ActionListener,WindowListene
            String str=amount.getText();
            int am=Integer.parseInt(str);
            System.out.println(am);
-            s.executeUpdate("Update Complaint set amount="+am+ " where comp_id ="+com);
+            s.executeUpdate("Update complaint set amount="+am+ " where comp_id ="+com);
         
             
             
@@ -173,8 +169,8 @@ public class payment_tech extends JFrame implements ActionListener,WindowListene
         
     }
     
-    public static void main(String args[]) throws SQLException, ClassNotFoundException{
-        payment_tech a= new payment_tech(2001);
+    public static void main(String args[]) {
+        payment_tech a= new payment_tech(2002);
         
         a.setVisible(true);
         a.setSize(750,750);
@@ -213,11 +209,7 @@ public class payment_tech extends JFrame implements ActionListener,WindowListene
    
      void get_cb()
     {
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(payment_customer.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
         
         Connection con = null;
          try {
@@ -232,7 +224,8 @@ public class payment_tech extends JFrame implements ActionListener,WindowListene
             Statement s = con.createStatement();
             Statement s1 = con.createStatement();
             Statement s2 = con.createStatement();
-            ResultSet r = s.executeQuery("select * from complaint where tech_id ="+q+" and status = 'not completed'");
+            ResultSet r = s.executeQuery("select * from complaint where tech_id ="+q+""
+                    + " and status = 'not completed' and amount is null");
             int i=1;
             cb.addItem("");
              while(r.next())
@@ -253,11 +246,7 @@ public class payment_tech extends JFrame implements ActionListener,WindowListene
         if (e.getSource() == cb) { 
             selected =cb.getSelectedIndex();
         }
-            try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(payment_customer.class.getName()).log(Level.SEVERE, null, ex);
-            }
+           
         Connection con = null;
          try {
             String url = "jdbc:mysql://localhost:3306/ges_db";
