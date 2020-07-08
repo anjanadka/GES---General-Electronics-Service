@@ -12,9 +12,9 @@ public class first_window extends JFrame implements ActionListener{
     private final JLabel txt;
     private final JButton customer =new JButton  ("  Customer ");//button-Customer
     private final JButton technician = new JButton (" Technician ");//Button-Technician
-    ImageIcon imageIcon = new ImageIcon("C:\\Users\\HP\\Downloads/logo1.png");
+    ImageIcon imageIcon = new ImageIcon("/home/anjana/Downloads/logo1.png");
     Image image = imageIcon.getImage(); // transform it 
-    Image newimg = image.getScaledInstance(300, 300,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+    Image newimg = image.getScaledInstance(500, 500,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
     ImageIcon imageIcon1 = new ImageIcon(newimg);
     
     public first_window() {
