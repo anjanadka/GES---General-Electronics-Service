@@ -36,7 +36,7 @@ public class payment_customer extends JFrame implements ActionListener,ItemListe
         q=a;
         get_cb();
         title.setFont(new Font("Times New Roman",Font.BOLD,40));
-                title.setForeground(Color.blue);
+                title.setForeground(new Color(0,153,204));
                 amount.setFont(new Font("Times New Roman",Font.PLAIN,18));
                tech_lbl.setFont(new Font("Times New Roman",Font.PLAIN,18));
                 sel_comp.setFont(new Font("Times New Roman",Font.PLAIN,18));
@@ -106,11 +106,7 @@ public class payment_customer extends JFrame implements ActionListener,ItemListe
     public void actionPerformed(ActionEvent e) {
         Object se = e.getSource();
         if(se==pay){
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(payment_customer.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
         Connection con = null;
          try {
             String url = "jdbc:mysql://localhost:3306/ges_db";
@@ -148,18 +144,14 @@ public class payment_customer extends JFrame implements ActionListener,ItemListe
     }
     
     public static void main(String args[]){
-        payment_customer a = new payment_customer(1003);
+        payment_customer a = new payment_customer(1001);
         a.setVisible(true);
         a.setSize(750,750);
     }
     
      void get_cb()
     {
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(payment_customer.class.getName()).log(Level.SEVERE, null, ex);
-        }
+      
         
         Connection con = null;
          try {
@@ -174,7 +166,8 @@ public class payment_customer extends JFrame implements ActionListener,ItemListe
             Statement s = con.createStatement();
             Statement s1 = con.createStatement();
             Statement s2 = con.createStatement();
-            ResultSet r = s.executeQuery("select * from complaint where cust_id ="+q+" and status = 'not completed'");
+            ResultSet r = s.executeQuery("select * from complaint where cust_id "
+                    + "="+q+" and status = 'not completed' and amount is not null");
             int i=1;
             cb.addItem("");
              while(r.next())
@@ -200,11 +193,7 @@ public class payment_customer extends JFrame implements ActionListener,ItemListe
         if (e.getSource() == cb) { 
             selected =cb.getSelectedIndex();
         }
-            try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(payment_customer.class.getName()).log(Level.SEVERE, null, ex);
-            }
+           
         Connection con = null;
          try {
             String url = "jdbc:mysql://localhost:3306/ges_db";
