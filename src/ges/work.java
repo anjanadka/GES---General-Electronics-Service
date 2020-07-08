@@ -51,15 +51,13 @@ public class work extends JFrame implements ActionListener {
     private final JLabel brand[] = new JLabel[5];
     private final JLabel complaint[] = new JLabel[5];
     private final JLabel rate[] = new JLabel[5];
+    private final JLabel txt_mob[] = new JLabel[5];
+    private final JLabel mob[] = new JLabel[5];
     int q;
     public work(int q1) {
         q=q1;
         int i=0,j=0;
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(work.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
         Connection con = null;
          try {
             String url = "jdbc:mysql://localhost:3306/ges_db";
@@ -79,7 +77,7 @@ public class work extends JFrame implements ActionListener {
             i=0;
             while(r.next()){
                 work[i]= new JLabel("Work");
-                r1 =s1.executeQuery("select name,address,pin from customer where cust_id="+r.getInt(5));
+                r1 =s1.executeQuery("select name,address,pin,mobile_no from customer where cust_id="+r.getInt(5));
                 r1.next();
                 txt_cust[i]=new JLabel("Customer Name : ");
                 String str=r1.getString(1);
@@ -87,6 +85,8 @@ public class work extends JFrame implements ActionListener {
                 cust[i]= new JLabel(str);
                 txt_add[i]= new JLabel("Address             : ");
                 add[i]=new JLabel(r1.getString(2)+" PIN: "+r1.getString(3));
+                mob[i]=new JLabel(r1.getString(4));
+                txt_mob[i]=new JLabel("Mobile Number  : ");
                 r2=s2.executeQuery("select name from equipment where equip_id="+r.getInt(3));
                 r2.next();
                 txt_equip[i]=new JLabel("Equipment         : ");
@@ -145,14 +145,15 @@ public class work extends JFrame implements ActionListener {
           for(i=0;i<a;i++)
         {
                sg.addGroup(g1.createParallelGroup(LEADING).addComponent(work[i],CENTER).addComponent(txt_cust[i]).addComponent(txt_add[i])
-                .addComponent(txt_equip[i]).addComponent(txt_brand[i]).addComponent(txt_complaint[i]).addComponent(space[i]));
+                .addComponent(txt_mob[i]).addComponent(txt_equip[i]).addComponent(txt_brand[i]).addComponent(txt_complaint[i]).addComponent(space[i]));
                 sg1.addGroup(g1.createParallelGroup().addComponent(cust[i]).addComponent(add[i])
-                .addComponent(equip[i]).addComponent(brand[i]).addComponent(complaint[i]).addComponent(sp[i]));
+                .addComponent(mob[i]).addComponent(equip[i]).addComponent(brand[i]).addComponent(complaint[i]).addComponent(sp[i]));
                 sg2.addGroup(g1.createParallelGroup(TRAILING).addComponent(ok[i],CENTER));
          
                 sq.addGroup(g1.createParallelGroup(BASELINE).addComponent(work[i]))  
                 .addGroup(g1.createParallelGroup(BASELINE).addComponent(txt_cust[i]).addComponent(cust[i]))
                 .addGroup(g1.createParallelGroup(BASELINE).addComponent(txt_add[i]).addComponent(add[i]))
+                .addGroup(g1.createParallelGroup(BASELINE).addComponent(txt_mob[i]).addComponent(mob[i]))
                 .addGroup(g1.createParallelGroup(BASELINE).addComponent(txt_equip[i]).addComponent(equip[i]))
                 .addGroup(g1.createParallelGroup(BASELINE).addComponent(txt_brand[i]).addComponent(brand[i]))
                 .addGroup(g1.createParallelGroup(BASELINE).addComponent(txt_complaint[i]).addComponent(complaint[i]))
@@ -164,10 +165,12 @@ public class work extends JFrame implements ActionListener {
         for(i=0;i<w;i++)
         {
             ok[i].addActionListener(this);
-            work[i].setFont(new Font("Times New Roman",Font.BOLD,20));
-                work[i].setForeground(Color.blue);
+            work[i].setFont(new Font("Times New Roman",Font.BOLD,24));
+                work[i].setForeground(new Color(0,153,204));
                 txt_cust[i].setFont(new Font("Times New Roman",Font.PLAIN,18));
                 txt_equip[i].setFont(new Font("Times New Roman",Font.PLAIN,18));
+                txt_mob[i].setFont(new Font("Times New Roman",Font.PLAIN,18));
+                mob[i].setFont(new Font("Times New Roman",Font.PLAIN,18));
                 txt_brand[i].setFont(new Font("Times New Roman",Font.PLAIN,18));
                 add[i].setFont(new Font("Times New Roman",Font.PLAIN,18));
                 txt_complaint[i].setFont(new Font("Times New Roman",Font.PLAIN,18));
@@ -215,8 +218,8 @@ public class work extends JFrame implements ActionListener {
          comp_wk.setLayout(g2);
         comp_wk.setBackground(Color.WHITE);
         for(j=0;j<b;j++){
-                work1[j].setFont(new Font("Times New Roman",Font.BOLD,20));
-                work1[j].setForeground(Color.blue);
+                work1[j].setFont(new Font("Times New Roman",Font.BOLD,24));
+                work1[j].setForeground(new Color(0,153,204));
                 txt_cust1[j].setFont(new Font("Times New Roman",Font.PLAIN,18));
                 txt_equip1[j].setFont(new Font("Times New Roman",Font.PLAIN,18));
                 txt_rate[j].setFont(new Font("Times New Roman",Font.PLAIN,18));
