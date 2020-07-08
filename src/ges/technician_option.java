@@ -47,10 +47,10 @@ public class technician_option extends JFrame implements ActionListener{
             a.setSize(750,750);
         }
         else if(s == payment_details){
-            payment_tech b= new payment_tech(k);
-            b.setVisible(true);
+             payment_tech a= new payment_tech(k);
+            a.setVisible(true);
             this.setVisible(false);
-            b.setSize(750,750);
+            a.setSize(750,750);
         }
         else if(s == logout)
         {
