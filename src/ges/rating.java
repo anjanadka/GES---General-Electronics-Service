@@ -69,11 +69,7 @@ public class rating extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-         try {
-             Class.forName("com.mysql.cj.jdbc.Driver");
-         } catch (ClassNotFoundException ex) {
-             Logger.getLogger(rating.class.getName()).log(Level.SEVERE, null, ex);
-         }
+        
         Connection con = null;
          try {
             String url = "jdbc:mysql://localhost:3306/ges_db";
@@ -105,7 +101,7 @@ public class rating extends JFrame implements ActionListener{
              customer_options a = new customer_options(t);
             a.setVisible(true);
             this.setVisible(false);
-            a.setSize(400,400);
+            a.setSize(750,750);
         }catch(SQLException ex){
             System.out.println("An error occurred while connecting MySQL databse");
             ex.printStackTrace();
